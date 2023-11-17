@@ -1,5 +1,6 @@
 .eslintrc.js
-node_modules
-dist
-public
-webpack
+node_modules/
+dist/
+public/
+webpack/
+.vscode/

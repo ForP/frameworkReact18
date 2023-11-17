@@ -1,6 +1,6 @@
 const path = require('path');
-// 非根目录部署basename
-const BASENAME = '/mobile-dashboard/'
+// 非/根目录部署basename
+const BASENAME = '/';
 const NODE_ENV = process.env.NODE_ENV || 'dev';
 //是否是产线环境
 const IS_PRO = NODE_ENV === 'prod';
@@ -19,5 +19,5 @@ module.exports = {
     DIST_PATH,
     SRC_PATH,
     PUBLIC_PATH,
-    BASENAME
-}
+    BASENAME,
+};

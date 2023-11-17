@@ -15,15 +15,17 @@ $ npm start
 ```
 
 ## 部署
-**注意**：本项目基于非根目录部署，项目内部资源（图片、字体）请放置于@/src/assets下
+
+**注意**：项目内部资源（图片、字体）请放置于@/src/assets下
 
 ```bash
 $ npm start
 ```
 
 ## 项目结构
+
 ```
-mobile-react18
+framework-react18
 ├─ public 外部静态资源目录：例如外部js。注意：图片、字体资源请放置于@/src/assets下
 │  └─ index.html 入口模板，勿删
 ├─ src

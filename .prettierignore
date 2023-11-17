@@ -1,0 +1,11 @@
+**/*.svg
+**/*.png
+package.json
+/dist
+.eslintignore
+.editorconfig
+.gitignore
+.prettierignore
+*.lock
+/public/
+/node_modules

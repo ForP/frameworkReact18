@@ -1,4 +1,4 @@
-# 移动端综合看板项目
+# 基于react + typescript + axios + husky + eslint + commitlint 脚手架
 
 ## Getting Started
 

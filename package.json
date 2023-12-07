@@ -1,7 +1,7 @@
 {
     "name": "webpack5-react-framework",
     "version": "1.0.0",
-    "description": "base frameword with react, compiled by webpack5",
+    "description": "base framework with react, compiled by webpack5",
     "main": "./src/index.tsx",
     "scripts": {
         "start": "cross-env NODE_ENV=dev webpack serve --config webpack/webpack.dev.js",
@@ -25,6 +25,8 @@
         "@babel/preset-react": "^7.18.6",
         "@babel/preset-typescript": "^7.18.6",
         "@babel/runtime-corejs3": "^7.20.6",
+        "@commitlint/cli": "^18.4.3",
+        "@commitlint/config-conventional": "^18.4.3",
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
         "@typescript-eslint/eslint-plugin": "^5.62.0",

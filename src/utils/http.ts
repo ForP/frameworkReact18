@@ -1,6 +1,10 @@
 import axios from 'axios';
-import type { AxiosInstance, AxiosResponse } from 'axios';
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import storage from '@/utils/storage';
+
+interface RequestConfig extends AxiosRequestConfig {
+    token?: boolean; // 接口是否需要携带token
+}
 
 const http: AxiosInstance = axios.create({
     baseURL: '/server/',
@@ -8,15 +12,17 @@ const http: AxiosInstance = axios.create({
 });
 // 添加请求拦截器
 http.interceptors.request.use(
-    (config) => {
+    (config: RequestConfig): any => {
         const { token, ...rest } = config;
         const Authorization = token ? storage.get('userToken', { initialValue: '' }) : '';
 
-        rest.headers = {
-            ...rest.headers,
-            Authorization,
+        return {
+            ...rest,
+            headers: {
+                ...rest.headers,
+                Authorization,
+            },
         };
-        return rest;
     },
     (error) => {
         return Promise.reject(error);

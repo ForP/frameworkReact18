@@ -1,14 +1,14 @@
-import React from "react";
-import { useRoutes } from "react-router-dom";
-import Layout from "@/pages/Layout";
-import Home from "@/pages/Home";
-import Login from "@/pages/Login";
-import Page404 from "@/pages/404";
+import React, { lazy } from 'react';
+import { useRoutes } from 'react-router-dom';
+const Layout = lazy(() => import(/* webpackChunkName: "p_Layout" */ '@/pages/Layout'));
+const Home = lazy(() => import(/* webpackChunkName: "p_Home" */ '@/pages/Home'));
+const Login = lazy(() => import(/* webpackChunkName: "p_Login" */ '@/pages/Login'));
+const Page404 = lazy(() => import(/* webpackChunkName: "p_Page404" */ '@/pages/404'));
 
 function AppRouter() {
     const pages = useRoutes([
         {
-            path: "/",
+            path: '/',
             element: <Layout />,
             children: [
                 {
@@ -16,17 +16,17 @@ function AppRouter() {
                     element: <Home />,
                 },
                 {
-                    path: "/login",
+                    path: '/login',
                     element: <Login />,
                 },
             ],
         },
         {
-            path: "*",
+            path: '*',
             element: <Page404 />,
         },
     ]);
     return pages;
 }
 
-export default AppRouter
+export default AppRouter;

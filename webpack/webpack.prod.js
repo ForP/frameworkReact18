@@ -7,7 +7,7 @@ const config = {
         filename: 'bundlejs/[name].[contenthash:8].bundle.js',
         chunkFilename: 'bundlejs/[name].[contenthash:8].chunk.js',
     },
-    cache: { type: 'filesystem', buildDependencies: { config: [__filename] } },//使用文件缓存
+    cache: { type: 'filesystem', buildDependencies: { config: [__filename] } }, //使用文件缓存
     // devtool: 'hidden-source-map',
     optimization: {
         minimize: true, //开启压缩
@@ -21,14 +21,21 @@ const config = {
                     name: 'vendors',
                     enforce: true, // ignore splitChunks.minSize, splitChunks.minChunks, splitChunks.maxAsyncRequests and splitChunks.maxInitialRequests
                     test: /[\\/]node_modules[\\/]/,
-                    priority: 10,
+                    priority: -10,
+                },
+                // 项目第三方组件axios
+                axios: {
+                    name: 'axios',
+                    enforce: true,
+                    test: /[\\/]axios[\\/]/,
+                    priority: -9,
                 },
                 // 项目公共组件
                 default: {
-                    minSize: 0, // 分离后的最小块文件大小默认3000
+                    minSize: 2000, // 分离后的最小块文件大小默认3000
                     name: 'common', // 用以控制分离后代码块的命名
-                    minChunks: 3, // 最小共用次数
-                    priority: 10, // 优先级，多个分组冲突时决定把代码放在哪块
+                    minChunks: 2, // 最小共用次数
+                    priority: -20, // 优先级，多个分组冲突时决定把代码放在哪块
                     reuseExistingChunk: true,
                 },
             },

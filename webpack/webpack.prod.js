@@ -4,8 +4,8 @@ const baseConfig = require('./webpack.base');
 const config = {
     mode: 'production',
     output: {
-        filename: 'bundlejs/[name].[contenthash:8].bundle.js',
-        chunkFilename: 'bundlejs/[name].[contenthash:8].chunk.js',
+        filename: 'bundlejs/[name].[contenthash:8].js',
+        chunkFilename: 'bundlejs/[name].[contenthash:8].async.js',
     },
     cache: { type: 'filesystem', buildDependencies: { config: [__filename] } }, //使用文件缓存
     // devtool: 'hidden-source-map',

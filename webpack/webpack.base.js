@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const plugins = require('./webpackUtils/plugins');
 //变量配置工具类
 const variable = require('./webpackUtils/variable');
@@ -16,11 +16,11 @@ module.exports = {
         asyncChunks: true,
     },
     resolve: {
-        alias:{
-            "@": SRC_PATH,
+        alias: {
+            '@': SRC_PATH,
         },
-        extensions: [".ts", ".tsx", ".js", ".json"],
-        mainFiles:["index"],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+        mainFiles: ['index'],
     },
     module: {
         rules: [
@@ -32,8 +32,8 @@ module.exports = {
                 },
                 parser: {
                     dataUrlCondition: {
-                        maxSize: 10 * 1024 // 小于10kb的图片会被base64处理
-                    }
+                        maxSize: 10 * 1024, // 小于10kb的图片会被base64处理
+                    },
                 },
                 exclude: [/node_modules/, /public/],
             },
@@ -67,19 +67,16 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            modules: { localIdentName: '[local]___[hash:base64:5]' }
+                            modules: { localIdentName: '[local]___[hash:base64:5]' },
                         },
                     },
-                    'less-loader'
-                ]
+                    'less-loader',
+                ],
             },
         ],
     },
     optimization: {
-        minimizer: [
-          new CssMinimizerPlugin(),
-          '...'
-        ],
+        minimizer: [new CssMinimizerPlugin(), '...'],
     },
     plugins: plugins.getPlugins(),
-}
+};

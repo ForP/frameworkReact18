@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.base');
 
@@ -12,7 +11,14 @@ const config = {
         hot: true,
         port: 3000,
         historyApiFallback: true,
-    }
+        proxy: {
+            '/server/': {
+                target: 'http://10.126.10.132:8122',
+                changeOrigin: true,
+                pathRewrite: { '': '' },
+            },
+        },
+    },
 };
 
 const mergedConfig = webpackMerge.merge(baseConfig, config);

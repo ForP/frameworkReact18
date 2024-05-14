@@ -7,6 +7,9 @@ export default function Home() {
     const abortControllerId = globalUtils.createUuid();
     useEffect(() => {
         Api.Global.getChemicalVehicleCount(abortControllerId);
+        return () => {
+            cancelHttpInstance.abort(abortControllerId);
+        };
     }, []);
 
     function onCancelApi() {

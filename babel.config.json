@@ -1,39 +1,37 @@
 {
-    "presets": [  [
-        "@babel/preset-react"
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [">0.25%", "not ie 11", "not op_mini all"]
+                },
+                "useBuiltIns": "entry",
+                "corejs": 3
+            }
+        ],
+        [
+            "@babel/preset-typescript",
+            {
+                "isTSX": true,
+                "allExtensions": true
+            }
+        ],
+        ["@babel/preset-react"]
     ],
-    [
-        "@babel/preset-env",
-        {
-            "targets": {
-                "browsers": [
-                    ">0.25%",
-                    "not ie 11",
-                    "not op_mini all"
-                ]
-            },
-            "useBuiltIns": "entry",
-            "corejs": 3
-        }
-    ],
-    [
-        "@babel/preset-typescript",
-        {
-            "isTSX": true,
-            "allExtensions": true
-        }
-    ]],
-    "plugins": [ [
-        "@babel/plugin-proposal-decorators",
-        {
-            "legacy": true
-        }
-    ],
-    [
-        "@babel/plugin-transform-runtime",
-        {
-            "corejs": 3,
-            "regenerator": true
-        }
-    ]]
+    "plugins": [
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": 3,
+                "regenerator": true
+            }
+        ]
+    ]
 }

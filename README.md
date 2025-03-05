@@ -16,7 +16,10 @@ $ npm start
 
 ## 部署
 
-**注意**：项目内部资源（图片、字体）请放置于@/src/assets下
+**注意**：
+
+1. 项目资源（图片、字体）需经webpack编译i的，请放置于@/src/assets下。
+2. 无需编译资源请放置于public目录下。
 
 ```bash
 $ npm start
@@ -26,7 +29,7 @@ $ npm start
 
 ```
 framework-react18
-├─ public 外部静态资源目录：例如外部js。注意：图片、字体资源请放置于@/src/assets下
+├─ public 外部静态资源目录：例如外部js、图片、字体资源
 │  └─ index.html 入口模板，勿删
 ├─ src
 │  ├─ index.less 全局样式

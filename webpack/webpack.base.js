@@ -68,6 +68,16 @@ module.exports = {
                         options: {
                             importLoaders: 1,
                             modules: { localIdentName: '[local]___[hash:base64:5]' },
+                            url: {
+                                filter: (url) => {
+                                    // 不处理绝对路径
+                                    if (url[0] === '/') {
+                                        return false;
+                                    }
+
+                                    return true;
+                                },
+                            },
                         },
                     },
                     'less-loader',
